@@ -5,9 +5,9 @@ import (
 	"testing"
 )
 
-// TestIPString2Int test IPString2Int
-func TestIPString2Int(t *testing.T) {
-	ipUint, err := IPString2Int("192.168.10.1")
+// TestIPString2Uint test IPString2Uint
+func TestIPString2Uint(t *testing.T) {
+	ipUint, err := IPString2Uint("192.168.10.1")
 	if err != nil {
 		t.Errorf("[TestIPString2Int error] %v", err)
 	}
@@ -15,17 +15,17 @@ func TestIPString2Int(t *testing.T) {
 		t.Errorf("[TestIPString2Int error] 192.168.10.1 convert error: %d", ipUint)
 	}
 
-	_, err = IPString2Int("392.168.10.1")
+	_, err = IPString2Uint("392.168.10.1")
 	if err == nil {
 		t.Error("[TestIPString2Int error] convertion shoud be error")
 	}
 }
 
-// TestNetIP2Int test NetIP2Int
-func TestNetIP2Int(t *testing.T) {
+// TestNetIP2Uint test NetIP2Uint
+func TestNetIP2Uint(t *testing.T) {
 	ip := net.ParseIP("192.168.10.1")
 
-	ipUint := NetIP2Int(ip)
+	ipUint := NetIP2Uint(ip)
 	if ipUint != 3232238081 {
 		t.Errorf("[TestIPString2Int error] 192.168.10.1 convert error： %d", ipUint)
 	}
