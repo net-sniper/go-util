@@ -22,15 +22,15 @@ func TestMinUint(t *testing.T) {
 
 // TestIsRangeOverlapUint test IsRangeOverlapUint
 func TestIsRangeOverlapUint(t *testing.T) {
-	if IsRangeOverlapUint(1, 10, 11, 20) {
-		t.Error("[TestMinUint error] There is no overlap between [1, 10] and [11, 20]")
-	}
-
 	if IsRangeOverlapUint(11, 20, 1, 10) {
 		t.Error("[TestMinUint error] There is no overlap between [11, 20] and [1, 10]")
 	}
 
 	if !IsRangeOverlapUint(11, 20, 1, 15) {
 		t.Error("[TestMinUint error] There is overlap between [11, 20] and [1, 15]")
+	}
+
+	if !IsRangeOverlapUint(11, 20, 1, 11) {
+		t.Error("[TestMinUint error] There is overlap between [11, 20] and [1, 11]")
 	}
 }
